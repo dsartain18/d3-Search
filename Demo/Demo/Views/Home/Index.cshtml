@@ -78,6 +78,7 @@
 
         var selectedChild;
 
+        //Handles the button click
         function findByName() {
 
             var userInput = document.getElementById("targetNode");
@@ -90,9 +91,12 @@
                 toggleChildren(targetChild);
                 expandParent(targetChild);
                 update(targetChild);
+
+                userInput.value = null;
             }
         }
 
+        //Recursively expands all parent nodes of an item
         function expandParent(item) {
             if (item.parent != undefined) {                                
                 if (item.parent.parent != undefined) {
@@ -103,6 +107,7 @@
             }
         }
 
+        //Adds and sets a "parent" property to all child nodes
         function setParent (item) {
             if (item.children != undefined) {
                 for (c in item.children) {
@@ -119,6 +124,7 @@
             }
         }
 
+        //Recursively searches child nodes for a node with a name property that matches the searchedText
         function matchByName(children, searchedText) {
             children.forEach(function (item) {
                 for (var k in item) {
@@ -131,7 +137,6 @@
                             matchByName(item._children, searchedText);
                         }
                     }
-
                     break;
                 }
 
@@ -139,6 +144,7 @@
             });
         }
 
+        //Toggles the children of a given node
         function toggleChildren(d) {
             if (d.children) {
                 d._children = d.children;
