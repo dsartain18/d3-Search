@@ -78,6 +78,7 @@
 
         var selectedChild;
 
+        // Added by me
         //Handles the button click
         function findByName() {
 
@@ -96,6 +97,7 @@
             }
         }
 
+        // Added by me
         //Recursively expands all parent nodes of an item
         function expandParent(item) {
             if (item.parent != undefined) {                                
@@ -107,6 +109,7 @@
             }
         }
 
+        // Added by me
         //Adds and sets a "parent" property to all child nodes
         function setParent (item) {
             if (item.children != undefined) {
@@ -124,6 +127,7 @@
             }
         }
 
+        // Added by me
         //Recursively searches child nodes for a node with a name property that matches the searchedText
         function matchByName(children, searchedText) {
             children.forEach(function (item) {
